@@ -1,7 +1,7 @@
 <div wizzard-step data-title="Contract Type" data-description="Choose your contract type."
     data-lang-title="steps.contract_type.title" data-lang-desc="steps.contract_type.desc" class="flex flex-col gap-5">
     <div class="flex flex-col gap-10 items-center justify-center p-12">
-        <h1 class="text-7xl font-bold">Hello From Github</h1>
+        <h1 class="text-7xl font-bold" data-lang="github.title">Hello From Github</h1>
         <svg aria-hidden="true" focusable="false" class="octicon octicon-mark-github" viewBox="0 0 24 24" width="150"
             height="150" fill="currentColor" display="inline-block" overflow="visible"
             style="vertical-align:text-bottom">
@@ -19,5 +19,6 @@
         const componentId = el?.getAttribute("wz-component-id");
         const props = window.__wzProps?.[componentId] || {};
 
+        languageManager.addTranslation("github.title", "مرحباً من GitHub", "Hello From Github");
     });
 </script>
