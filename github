@@ -1,16 +1,49 @@
 <div wizzard-step data-title="Contract Type" data-description="Choose your contract type."
-    data-lang-title="steps.contract_type.title" data-lang-desc="steps.contract_type.desc" class="flex flex-col gap-5">
+    data-lang-title="steps.contract_type.title" data-lang-desc="steps.contract_type.desc"
+    class="flex flex-col gap-5 overflow-hidden" style="margin-bottom: 0;">
+
+    <!-- Animated Layer -->
+    <div class="github-bg"></div>
+
+    <div class="flex flex-col">
+        <h1 id="step-title" data-title data-lang="steps.github.title"
+            class="text-3xl font-extrabold text-gray-900 tracking-tight">Customer Details
+        </h1>
+        <p id="step-desc" data-description data-lang="steps.github.desc" class="text-gray-500 mt-2 text-lg">
+            Select customer &amp; address or add new
+            customer.</p>
+
+    </div>
+
     <div class="flex flex-col gap-10 items-center justify-center p-12">
-        <h1 class="text-7xl font-bold" data-lang="github.title">Hello From Github</h1>
-        <svg aria-hidden="true" focusable="false" class="octicon octicon-mark-github" viewBox="0 0 24 24" width="150"
-            height="150" fill="currentColor" display="inline-block" overflow="visible"
-            style="vertical-align:text-bottom">
-            <path
-                d="M12 1C5.923 1 1 5.923 1 12c0 4.867 3.149 8.979 7.521 10.436.55.096.756-.233.756-.522 0-.262-.013-1.128-.013-2.049-2.764.509-3.479-.674-3.699-1.292-.124-.317-.66-1.293-1.127-1.554-.385-.207-.936-.715-.014-.729.866-.014 1.485.797 1.691 1.128.99 1.663 2.571 1.196 3.204.907.096-.715.385-1.196.701-1.471-2.448-.275-5.005-1.224-5.005-5.432 0-1.196.426-2.186 1.128-2.956-.111-.275-.496-1.402.11-2.915 0 0 .921-.288 3.024 1.128a10.193 10.193 0 0 1 2.75-.371c.936 0 1.871.123 2.75.371 2.104-1.43 3.025-1.128 3.025-1.128.605 1.513.221 2.64.111 2.915.701.77 1.127 1.747 1.127 2.956 0 4.222-2.571 5.157-5.019 5.432.399.344.743 1.004.743 2.035 0 1.471-.014 2.654-.014 3.025 0 .289.206.632.756.522C19.851 20.979 23 16.854 23 12c0-6.077-4.922-11-11-11Z">
-            </path>
-        </svg>
+        <h1 class="text-7xl font-bold animate-bounce" data-lang="github.title">Hello From Github</h1>
+        <div class="">
+            <svg class="hover:scale-115 hover:rotate-10 transition-all duration-300" aria-hidden="true"
+                focusable="false" class="octicon octicon-mark-github" viewBox="0 0 24 24" width="250" height="250"
+                fill="currentColor" display="inline-block" overflow="visible" style="vertical-align:text-bottom">
+                <path
+                    d="M12 1C5.923 1 1 5.923 1 12c0 4.867 3.149 8.979 7.521 10.436.55.096.756-.233.756-.522 0-.262-.013-1.128-.013-2.049-2.764.509-3.479-.674-3.699-1.292-.124-.317-.66-1.293-1.127-1.554-.385-.207-.936-.715-.014-.729.866-.014 1.485.797 1.691 1.128.99 1.663 2.571 1.196 3.204.907.096-.715.385-1.196.701-1.471-2.448-.275-5.005-1.224-5.005-5.432 0-1.196.426-2.186 1.128-2.956-.111-.275-.496-1.402.11-2.915 0 0 .921-.288 3.024 1.128a10.193 10.193 0 0 1 2.75-.371c.936 0 1.871.123 2.75.371 2.104-1.43 3.025-1.128 3.025-1.128.605 1.513.221 2.64.111 2.915.701.77 1.127 1.747 1.127 2.956 0 4.222-2.571 5.157-5.019 5.432.399.344.743 1.004.743 2.035 0 1.471-.014 2.654-.014 3.025 0 .289.206.632.756.522C19.851 20.979 23 16.854 23 12c0-6.077-4.922-11-11-11Z">
+                </path>
+            </svg>
+        </div>
+
+        <div class="flex flex-col gap-2 justify-center items-center">
+            <div class="relative">
+                <button
+                    class="absolute -z-1 animate-ping w-full h-full opacity-20 bg-slate-800 text-white rounded-3xl px-4 py-2 font-semibold text-lg hover:scale-110 hover:-translate-y-2 hover:shadow-lg transition-all duration-300"></button>
+                <button onclick="handleButtonClick()" data-lang="github.nextStep"
+                    class="bg-slate-800 text-white rounded-3xl px-4 py-2 font-semibold text-lg hover:scale-110 hover:-translate-y-2 hover:shadow-lg transition-all duration-300">الخطوة
+                    التالية</button>
+            </div>
+            <p class="text-gray-500 text-xs italic" data-lang="github.clickToNext">Click here to go to the next step</p>
+        </div>
+
+
+
     </div>
 </div>
+
+<!-- Scripts -->
 <script>
     document.addEventListener("app:ready", ({ detail }) => {
         // Variables
@@ -19,6 +52,15 @@
         const componentId = el?.getAttribute("wz-component-id");
         const props = window.__wzProps?.[componentId] || {};
 
+
         languageManager.addTranslation("github.title", "مرحباً من GitHub", "Hello From Github");
+        languageManager.addTranslation("github.nextStep", "😍 الخطوة التالية 🎉", "😍 Next Step 🎉");
+        languageManager.addTranslation("github.clickToNext", "إضغط هنا للذهاب للخطوة التالية", "Click here to go to the next step");
+        languageManager.addTranslation("github.controlToast", "إنت قادر تتحكم في الToast", "You can control Toast");
+
+        window.handleButtonClick = () => {
+            Toast.show(languageManager.t("github.controlToast"), "success");
+            wizard.next();
+        };
     });
 </script>
